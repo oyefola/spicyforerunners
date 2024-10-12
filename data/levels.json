@@ -1,0 +1,43 @@
+{
+    "levels": [
+        {
+            "level_id": 1,
+            "title": "Help Bantu Build a Community Garden",
+            "story": "Bantu needs your help to design a community garden for the neighborhood.",
+            "image_url": "path_to_image/community_garden.png",
+            "thought_points": ["What plants are needed?", "How should the garden be organized?"],
+            "hints": ["Try specifying the colors of plants", "Include a variety of plants"],
+            "checklist": [
+                "Used at least two types of plants",
+                "Specified plant colors",
+                "Included both fruits and vegetables",
+                "Organized plants based on garden layout",
+                "Considered environmental sustainability"
+            ],
+            "gems_per_item": 10,
+            "max_gems": 50,
+            "next_level_id": 2
+        },
+        {
+            "level_id": 2,
+            "title": "Katherine's Moon Mission",
+            "story": "Help Bantu design a rocket for space exploration.",
+            "image_url": "path_to_image/rocket_design.png",
+            "thought_points": [
+                "What features will make the rocket efficient?",
+                "How can the rocket be powered in space?"
+            ],
+            "hints": ["Consider adding solar panels", "Make the rocket aerodynamic"],
+            "checklist": [
+                "Included solar panels",
+                "Designed the rocket to be aerodynamic",
+                "Considered weight distribution",
+                "Added features for space sustainability",
+                "Included safety measures"
+            ],
+            "gems_per_item": 10,
+            "max_gems": 50,
+            "next_level_id": 3
+        }
+    ]
+}

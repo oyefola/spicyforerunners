@@ -1,0 +1,39 @@
+{
+    "users": [
+        {
+            "username": "playerOne",
+            "gems": 100,
+            "mascot_customizations": [
+                {
+                    "item_id": 1,
+                    "category": "hat",
+                    "name": "Superhero Cap"
+                },
+                {
+                    "item_id": 3,
+                    "category": "shirt",
+                    "name": "Engineer Jacket"
+                }
+            ],
+            "levels_completed": [1]
+        },
+        {
+            "username": "playerTwo",
+            "gems": 50,
+            "mascot_customizations": [],
+            "levels_completed": [1, 2]
+        },
+        {
+            "username": "playerThree",
+            "gems": 75,
+            "mascot_customizations": [
+                {
+                    "item_id": 4,
+                    "category": "cape",
+                    "name": "Golden Cape"
+                }
+            ],
+            "levels_completed": []
+        }
+    ]
+}

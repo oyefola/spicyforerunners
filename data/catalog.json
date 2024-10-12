@@ -1,0 +1,52 @@
+{
+    "catalog": [
+        {
+            "item_id": 1,
+            "category": "hat",
+            "name": "Superhero Cap",
+            "description": "A classic red cap with a superhero emblem.",
+            "cost_in_gems": 30,
+            "image_url": "path_to_image/superhero_cap.png"
+        },
+        {
+            "item_id": 2,
+            "category": "hat",
+            "name": "Tech Innovator Helmet",
+            "description": "A sleek helmet for tech-savvy adventurers.",
+            "cost_in_gems": 50,
+            "image_url": "path_to_image/tech_helmet.png"
+        },
+        {
+            "item_id": 3,
+            "category": "shirt",
+            "name": "Engineer Jacket",
+            "description": "A stylish jacket for problem solvers.",
+            "cost_in_gems": 40,
+            "image_url": "path_to_image/engineer_jacket.png"
+        },
+        {
+            "item_id": 4,
+            "category": "shirt",
+            "name": "Space Explorer Suit",
+            "description": "A high-tech suit for space missions.",
+            "cost_in_gems": 60,
+            "image_url": "path_to_image/space_suit.png"
+        },
+        {
+            "item_id": 5,
+            "category": "cape",
+            "name": "Golden Cape",
+            "description": "A shining cape for hero-level achievements.",
+            "cost_in_gems": 80,
+            "image_url": "path_to_image/golden_cape.png"
+        },
+        {
+            "item_id": 6,
+            "category": "cape",
+            "name": "Solar-Powered Cape",
+            "description": "A cape powered by the sun for eco-friendly missions.",
+            "cost_in_gems": 90,
+            "image_url": "path_to_image/solar_cape.png"
+        }
+    ]
+}
