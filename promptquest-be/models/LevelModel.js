@@ -16,6 +16,33 @@ function getLevelById(levelId) {
     return levels.find((level) => level.level_id === levelId);
 }
 
+function getLevels() {
+    const levels = readLevels();
+
+    return levels.map((level) => ({
+        level_id: level.level_id,
+        desc_image: level.image_url,
+        short_desc: level.short_desc,
+        open: level.open,
+    }));
+}
+function getLoadingScreenData() {
+    const loadingScreenList = getLoadingScreenData();
+    const randomIndex = Math.floor(Math.random() * levels.length);
+    return loadingScreenList[randomIndex];
+}
+function getLevelInfo(level_id) {
+    const levels = readLevels();
+    const level = levels[level_id];
+    return {
+        avatarImage: level.avatarImage,
+        problemDesc: level.problemDesc,
+        yourJob: level.yourJob,
+        topTips: level.hints,
+    };
+}
+
+
 module.exports = {
     getLevelById,
 };
