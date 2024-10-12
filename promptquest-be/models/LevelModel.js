@@ -42,6 +42,11 @@ function getLevelInfo(level_id) {
     };
 }
 
+function openLevel(level_id) {
+    const levels = readLevels();
+    levels[level_id].open = true;
+    fs.writeFileSync(levelsFilePath, JSON.stringify({ levels }));
+}
 
 module.exports = {
     getLevelById,

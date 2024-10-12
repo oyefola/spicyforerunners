@@ -45,6 +45,16 @@ function updateUserGems(username, gems) {
     }
 }
 
+function updateUserAvatar(username) {
+    const users = readUsers();
+    const user = users.find((u) => u.username === username);
+    
+    if (user) {
+        user.mascot_customizations.push("avatar");
+        writeUsers(users);
+    }
+}
+
 module.exports = {
     getUserByUsername,
     createUser,
