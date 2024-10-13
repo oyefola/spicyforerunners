@@ -16,13 +16,13 @@ const OptionPage = () => {
             title="Option 1"
             text="This is the first option."
             hint="This is a hint for the first option."
-            onSelect={() => navigate("/results")}
+            onSelect={() => navigate("/end")}
         />
         <OptionCard
             title="Option 2"
             text="This is the second option."
             hint="This is a hint for the second option."
-            onSelect={() => navigate("/results")}
+            onSelect={() => navigate("/end")}
         />
         </div>
     </div>

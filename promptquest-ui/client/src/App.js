@@ -32,6 +32,7 @@ import LevelsPage from './Pages/LevelsPage';
 import GamePage from './Pages/GamePage';
 import ResultsPage from './Pages/ResultsPage';
 import OptionPage from './Pages/OptionPage';
+import EndPage from "./Pages/EndPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/game" element={<GamePage />} />
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/option" element={<OptionPage />} />
+        <Route path="/end" element={<EndPage/>} />
       </Routes>
     </Router>
   );

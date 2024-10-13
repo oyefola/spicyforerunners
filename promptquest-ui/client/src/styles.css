@@ -411,5 +411,34 @@ body {
 
   .option-card:hover .hint {
     opacity: 1; /* Show hint on hover */
-    pointer-events: auto; /* Enable mouse events */
+    pointer-events: auto; 
   }  
+
+  .bubble {
+    position: fixed;
+    top: 20%;
+    right: 20px;
+    transform: translateX(-50%);
+    background-color: #34A853;
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 50px;
+    font-size: 16px;
+    text-align: center;
+    animation: float 3s ease-in-out infinite; 
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-50%) translateY(-20px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
