@@ -11,7 +11,7 @@ const ResultsPage = () => {
 
   const handleContinue = () => {
     // Navigate to the next level (Update the path as needed)
-    navigate('/levels');
+    navigate('/option');
   };
 
   return (

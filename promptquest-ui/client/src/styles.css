@@ -371,3 +371,45 @@ body {
     color: white; /* White text */
   }
   
+  .option-container {
+    display: flex; /* Display options horizontally */
+    gap: 50px; /* Space between options */
+    align-items: center;
+  }
+
+  .option-card {
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    background-color: #7695FF;
+    overflow: hidden;
+    border-radius: 12px;
+    -webkit-box-shadow: 5px 4px 0px 0px #000000; 
+    box-shadow: 5px 4px 0px 0px #000000;
+    padding: 30px;
+    align-items: center;
+    font-size: xx-large;
+    text-shadow: var(--text-shadow);
+  }
+  
+  .hint {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ADD8E6; /* Light blue background */
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+    color: #FBBC04; /* Ensure text color contrasts with background */
+    font-size: 14px; /* Font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+    border-radius: 4px; /* Rounded corners */
+    transition: opacity 0.3s ease; /* Smooth transition */
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Prevent mouse events */
+  }
+
+  .option-card:hover .hint {
+    opacity: 1; /* Show hint on hover */
+    pointer-events: auto; /* Enable mouse events */
+  }  
