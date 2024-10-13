@@ -1,3 +1,4 @@
+import { client } from "../openaiclient";
 const fs = require("fs");
 const path = require("path");
 
@@ -5,24 +6,24 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, "../../data/users.json");
 
 // Helper function to read user data from JSON
-function readUsers() {
+export function readUsers() {
     const data = fs.readFileSync(usersFilePath);
     return JSON.parse(data);
 }
 
 // Helper function to write user data to JSON
-function writeUsers(users) {
+export function writeUsers(users) {
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 }
 
 // Get user by username
-function getUserByUsername(username) {
+export function getUserByUsername(username) {
     const users = readUsers();
     return users.find((user) => user.username === username);
 }
 
 // Create a new user
-function createUser(username) {
+export function createUser(username) {
     const users = readUsers();
     const newUser = {
         username: username,
@@ -36,7 +37,7 @@ function createUser(username) {
 }
 
 // Update user gems
-function updateUserGems(username, gems) {
+export function updateUserGems(username, gems) {
     const users = readUsers();
     const user = users.find((u) => u.username === username);
     if (user) {
@@ -45,7 +46,7 @@ function updateUserGems(username, gems) {
     }
 }
 
-function updateUserAvatar(username) {
+export function updateUserAvatar(username) {
     const users = readUsers();
     const user = users.find((u) => u.username === username);
     
@@ -55,8 +56,4 @@ function updateUserAvatar(username) {
     }
 }
 
-module.exports = {
-    getUserByUsername,
-    createUser,
-    updateUserGems,
-};
+

@@ -1,3 +1,4 @@
+import { client } from "../openaiclient";
 const fs = require("fs");
 const path = require("path");
 
@@ -10,12 +11,6 @@ function readLevels() {
     return JSON.parse(data).levels;
 }
 
-// Get level by ID
-function getLevelById(levelId) {
-    const levels = readLevels();
-    return levels.find((level) => level.level_id === levelId);
-}
-
 function getLevels() {
     const levels = readLevels();
 
@@ -26,19 +21,43 @@ function getLevels() {
         open: level.open,
     }));
 }
-function getLoadingScreenData() {
-    const loadingScreenList = getLoadingScreenData();
-    const randomIndex = Math.floor(Math.random() * levels.length);
-    return loadingScreenList[randomIndex];
+async function getHints(level_desc) {
+    const response = await client.chat.completions.create({
+        model: "gpt-4o",
+        messages: [
+            {
+                role: "system",
+                content: [
+                    {
+                        type: "text",
+                        text: `
+                You are a helpful assistant that helps kids aged 8-12 learn prompt engineering,given a problem statement,generate three very short points(four words max) that the kid should consider when they are crafting thier prompt in a pure json list format. remember to use kid friendly language.
+              `,
+                    },
+                ],
+            },
+            {
+                role: "user",
+                content: [
+                    {
+                        type: "text",
+                        text: `problem statement: ${level_desc}`,
+                    },
+                ],
+            },
+        ],
+    });
+    return response.completions[0].content;
 }
-function getLevelInfo(level_id) {
+async function getLevelInfo(level_id) {
     const levels = readLevels();
     const level = levels[level_id];
+
     return {
         avatarImage: level.avatarImage,
         problemDesc: level.problemDesc,
         yourJob: level.yourJob,
-        topTips: level.hints,
+        topTips: await getHints(level.problemDesc),
     };
 }
 
@@ -48,6 +67,13 @@ function openLevel(level_id) {
     fs.writeFileSync(levelsFilePath, JSON.stringify({ levels }));
 }
 
-module.exports = {
-    getLevelById,
-};
+function scoreResponse(numberOfAddressedItems, checklist, level_id) {
+    updateUserGems("playerOne", 10 * numberOfAddressedItems);
+    if (numberOfAddressedItems == checklist.length - 2) {
+        openLevel(level_id + 1);
+    }
+    return {
+        passed: numberOfAddressedItems == checklist.length - 2,
+        gems: 10 * numberOfAddressedItems,
+    };
+}
