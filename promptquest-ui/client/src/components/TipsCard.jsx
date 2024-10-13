@@ -1,10 +1,12 @@
 import React from "react";
 const TipsCard = () => (
   <div className="tip-card">
-    <h1>Top Tips</h1>
-    <p>1.BE CREATIVE</p>
-    <p>2.DESCRIBE WHAT IT LOOK LIKE </p>
-    <p>3.DETAIL WHAT IT SHOULD DO</p>
+    <h1><strong>Top Tips</strong></h1>
+    <ul>
+      <li>1. Be Creative</li>
+      <li>2. Describe what it looks like</li>
+      <li>3. Detail what it should do</li>
+    </ul>
   </div>
 );
 

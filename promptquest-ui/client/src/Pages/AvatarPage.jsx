@@ -42,9 +42,9 @@ import { useNavigate } from 'react-router-dom';
 import AvatarCard from '../components/AvatarCard';
 
 const avatars = [
-    { name: "Demi", image: require("../assets/avatar1.png") },
-    { name: "Bantu", image: require("../assets/avatar2.png") },
-    { name: "Mike", image: require("../assets/avatar3.png") }
+    { name: "Demi", image: require("../assets/avatar4.png") },
+    { name: "Bantu", image: require("../assets/avatar5.png") },
+    { name: "Mike", image: require("../assets/avatar6.png") }
 ];
 
 const AvatarPage = () => {
