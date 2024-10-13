@@ -1,27 +1,21 @@
 import React from "react";
-import logo from './logo.svg';
 import './App.css';
-import Button from './components/Button';
+import './styles.css';
+import StartPage from "./Pages/StartPage";
+import AvatarPage from './Pages/AvatarPage';  // Avatar page component
+import LevelsPage from './Pages/LevelsPage';  // Level page component
+import { useState } from "react";
 
 function App() {
+  const [page,setPage] = useState('start')
+
   return (
-    <Button text="Generate Robot"></Button>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    // <StartPage></StartPage>
+    <div>
+      {page === 'start' && <StartPage onStart = {() => setPage('avatar')}/>}
+      {page === 'avatar' && <AvatarPage onAvatarSelect={() => setPage('levels')} />}
+      {page === 'levels' && <LevelsPage />}
+    </div>
   );
 }
 
