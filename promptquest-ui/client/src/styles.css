@@ -39,7 +39,6 @@ body {
     font-weight: 400;
     text-shadow: var(--text-shadow);
     text-align: center;
-    margin-top: ;
   }
   
 
@@ -319,14 +318,24 @@ body {
   .image-section {
     flex: 1; /* Takes up half of the screen */
     display: flex;
+    flex-direction:column;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0; /* Light background for image section */
+    gap:20px;
+    /* background-color: #f0f0f0; Light background for image section */
   }
   
   .result-image {
-    max-width: 80%; /* Responsive image size */
+    /* max-width: 80%; 
     height: auto;
+    border-radius: 20px;
+    border-color: white;
+    border: solid; */
+    height: 450px;
+    border-radius: 20px;
+    border-color: white;
+    border: solid;
+    border: 4px solid white;
   }
   
   .feedback-section {
@@ -338,6 +347,7 @@ body {
   }
   
   .feedback-box {
+    flex: 1;
     background-color: #e6f7ff; /* Light blue background for feedback */
     padding: 20px; /* Padding for feedback box */
     border-radius: 8px; /* Rounded corners */
@@ -351,8 +361,9 @@ body {
   
   .button-container {
     display: flex;
-    justify-content: space-between; /* Space buttons evenly */
-  }
+    justify-content: center;
+    gap: 20px;
+}
   
   .retry-button,
   .continue-button {
@@ -441,4 +452,41 @@ body {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
+  }
+
+  .result-header{
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: var(--text-shadow);
+  }
+
+  .fb-upper-container{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .fb-lower-container{
+    display: flex;
+    gap: 20px;
+  }
+
+
+  .image-section {
+    flex: 1; /* Takes up half of the screen */
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    /* background-color: #f0f0f0; Light background for image section */
+  }
+
+  
+  .title{
+    font-weight: 600;
+    text-decoration: underline;
+    text-align: center;
   }

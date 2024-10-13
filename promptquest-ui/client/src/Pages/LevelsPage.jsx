@@ -2,13 +2,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import LevelCard from '../components/LevelCard';
-import LoadingPage from '../Pages/LoadingPage'; // Import the loading page
-import useLoadingData from '../hooks/useLoadingData'; // Import the custom loading hook
+// import LoadingPage from '../Pages/LoadingPage'; // Import the loading page
+// import useLoadingData from '../hooks/useLoadingData'; // Import the custom loading hook
 
 const LevelsPage = () => {
     const selectedAvatar = JSON.parse(localStorage.getItem('selectedAvatar')) || { name: 'DefaultName' };
     const navigate = useNavigate();
-    const { loadingFact, isLoading, fetchLoadingData } = useLoadingData(); // Use the custom hook
+    // const { loadingFact, isLoading, fetchLoadingData } = useLoadingData(); // Use the custom hook
 
     const levels = [
         {
@@ -33,7 +33,7 @@ const LevelsPage = () => {
 
     const onLevelSelect = (level) => {
         if (level.status === 'unlocked') {
-            fetchLoadingData(); // Fetch loading data
+            // fetchLoadingData(); // Fetch loading data
             setTimeout(() => {
                 localStorage.setItem('selectedLevel', JSON.stringify(level)); // Store the selected level
                 navigate('/game'); // Navigate to the game page after fetching
@@ -41,10 +41,10 @@ const LevelsPage = () => {
         }
     };
 
-    // Show loading page if data is being fetched
-    if (isLoading) {
-        return <LoadingPage fact={loadingFact} />;
-    }
+    // // Show loading page if data is being fetched
+    // if (isLoading) {
+    //     return <LoadingPage fact={loadingFact} />;
+    // }
 
     return (
         <div className="levels-container">
