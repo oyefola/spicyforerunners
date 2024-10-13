@@ -23,7 +23,7 @@ const PromptCard = () => {
         onChange={(e) => setPrompt(e.target.value)} // Update state on input change
         className="prompt-input"
       />
-      <Button text="Submit Prompt" onClick={handleSubmit} /> {/* Submit button */}
+      <Button text="Generate" onClick={handleSubmit} /> {/* Submit button */}
     </div>
   );
 };

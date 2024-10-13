@@ -9,14 +9,7 @@ const StoryCard = () => (
   </div>
 );
 
-<div className="tip-card">
-  <h4>Top Tips</h4>
-  <ul>
-    <li>Be creative</li>
-    <li>Describe what it look like</li>
-    <li>Detail what it should do</li>
-  </ul>
-</div>
+
 
 
 export default StoryCard;
