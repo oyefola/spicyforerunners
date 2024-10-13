@@ -5,8 +5,9 @@ import LevelCard from '../components/LevelCard';
 // import LoadingPage from '../Pages/LoadingPage'; // Import the loading page
 // import useLoadingData from '../hooks/useLoadingData'; // Import the custom loading hook
 
+
 const LevelsPage = () => {
-    const selectedAvatar = JSON.parse(localStorage.getItem('selectedAvatar')) || { name: 'DefaultName' };
+    // const selectedAvatar = JSON.parse(localStorage.getItem("selectedAvatar")) || { name: "DefaultName" };
     const navigate = useNavigate();
     // const { loadingFact, isLoading, fetchLoadingData } = useLoadingData(); // Use the custom hook
 
@@ -30,34 +31,35 @@ const LevelsPage = () => {
             status: 'locked',
         },
     ];
+    const [levels, setLevels] = useState([]);
 
+    useEffect(() => {
+        fetch("http://localhost:3000/api/levels")
+            .then((response) => response.json())
+            .then((data) => setLevels(data))
+            .catch((error) => console.error("Error:", error));
+    }, []);
     const onLevelSelect = (level) => {
-        if (level.status === 'unlocked') {
-            // fetchLoadingData(); // Fetch loading data
-            setTimeout(() => {
-                localStorage.setItem('selectedLevel', JSON.stringify(level)); // Store the selected level
-                navigate('/game'); // Navigate to the game page after fetching
-            }, 2000); // Adjust timeout duration as needed
+        if (level.open) {
+            navigate("/level1"); // Adjust timeout duration as needed
         }
     };
 
-    // // Show loading page if data is being fetched
-    // if (isLoading) {
-    //     return <LoadingPage fact={loadingFact} />;
-    // }
+   
 
     return (
         <div className="levels-container">
             <h1 className="levels-header">Levels</h1>
             <h2 className="levels-subheader">Complete levels to unlock new adventures</h2>
+
             <div className="avatar-container">
                 {levels.map((level) => (
                     <LevelCard
-                        key={level.level}
-                        level={level.level}
-                        description={level.description}
-                        image={level.image}
-                        unlocked={level.status === 'unlocked'}
+                        key={level.level_id}
+                        level={level}
+                        description={level.title}
+                        image={level.image_url}
+                        unlocked={level.open}
                         onSelect={() => onLevelSelect(level)} // Handle level selection
                     />
                 ))}

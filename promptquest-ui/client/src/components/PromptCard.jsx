@@ -8,7 +8,6 @@ const PromptCard = () => {
 
   const handleSubmit = () => {
     if (prompt.trim() !== "") {
-      // Store the prompt in local storage
       localStorage.setItem('submittedPrompt', JSON.stringify(prompt));
       navigate('/results'); // Navigate to the results page
     }
