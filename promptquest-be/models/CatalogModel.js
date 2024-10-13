@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { updateUserGems } = require("./UserModel");
 
 // Path to the catalog JSON file
 const catalogFilePath = path.join(__dirname, "../../data/catalog.json");
