@@ -1,20 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ResultsPage = () => {
+const ResultsPage2 = () => {
   const navigate = useNavigate();
   
   // Safely parse the submitted prompt, with a fallback for empty or null values
-  const submittedPrompt = localStorage.getItem('submittedPrompt');
-  const promptText = submittedPrompt ? JSON.parse(submittedPrompt) : "No prompt submitted yet.";
+  const selectedPrompt = localStorage.getItem('selectedPrompt');
+  const promptText = selectedPrompt ? JSON.parse(selectedPrompt) : "No prompt submitted yet.";
 
-  const handleRetry = () => {
-    navigate(-1); // Navigate back to the previous page
-  };
+//   const handleRetry = () => {
+//     navigate(-1); // Navigate back to the previous page
+//   };
 
   const handleContinue = () => {
     // Navigate to the next level (Update the path as needed)
-    navigate('/option');
+    navigate('/end');
   };
 
 
@@ -22,9 +22,9 @@ const ResultsPage = () => {
   return (
     <div className="results-container">
       <div className="image-section">
-        <h1 className="result-header">Here's what your prompt created:</h1>
-        <p className="submitted-prompt">"{promptText}"</p>
-        <img src={require("../assets/placeholder.jpeg")} alt="Result" className="result-image" />
+        <h1 className="result-header">Here's the prompt you selected :</h1>
+        <p className="result-image submitted-prompt">"{promptText}"</p>
+        {/* <img src={require("../assets/placeholder.jpeg")} alt="Result" className="result-image" /> */}
       </div>
       
       <div className="feedback-section">
@@ -48,12 +48,12 @@ const ResultsPage = () => {
 
           <div>
             {/* Avatar image */}
-            <img src={require("../assets/avatar1.png")} alt="Avatar" className="avatar-image"/>
+            <img src={require("../assets/avatar5.png")} alt="Avatar" className="avatar-image"/>
             
           </div>
         </div>
         <div className="button-container">
-          <button className="retry-button" onClick={handleRetry}>Retry</button>
+          {/* <button className="retry-button" onClick={handleRetry}>Retry</button> */}
           <button className="continue-button" onClick={handleContinue}>Continue</button>
         </div>
       </div>
@@ -61,7 +61,7 @@ const ResultsPage = () => {
   );
 };
 
-export default ResultsPage;
+export default ResultsPage2;
 
 
 
