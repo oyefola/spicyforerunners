@@ -16,10 +16,10 @@ const EndPage = () => {
 
   return (
     <div className='container'>
-      <h2 className="header">Thanks to your solution...</h2>
-      <img src={require('../assets/level3.jpeg')} alt="Description of image" className="your-image-class" />
+      <h2 className="header">You Completed Level 1.</h2>
+      <img src={require('../assets/level1.jpeg')} alt="Description of image" className="your-image-class" />
       <div className="sp-white-container">
-        <p>Some text here.</p>
+        <p>Well done for embarking on your prompt learning journey. <br></br>Thanks to you Bantu's Grandma is sattisfied with her assiatnce </p>
       </div>
       <div style={{ display: 'flex', gap: '10px' }}>
         <Button text="Next" onClick={handleNext} />

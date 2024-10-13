@@ -402,24 +402,34 @@ body {
   }
 
   .option-container {
-    display: flex; /* Display options horizontally */
-    gap: 50px; /* Space between options */
+
+    display: flex;
+    /* grid-gap: 50px; */
+    gap: 50px;
     align-items: center;
-  }
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    margin: 30px;
+}
+
 
   .option-card {
+    flex: 1;
     position: relative;
-    display:flex;
+    display: flex;
     flex-direction: column;
     background-color: #7695FF;
     overflow: hidden;
     border-radius: 12px;
-    -webkit-box-shadow: 5px 4px 0px 0px #000000; 
     box-shadow: 5px 4px 0px 0px #000000;
-    padding: 30px;
+    padding: 20px;
     align-items: center;
-    font-size: xx-large;
-    text-shadow: var(--text-shadow);
+    font-size: large;
+    /* text-shadow: var(--text-shadow); */
+    height: 300px;
+    text-align: center;
+    gap: 20px;
   }
   
   .hint {
