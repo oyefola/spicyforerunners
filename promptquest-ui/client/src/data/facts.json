@@ -1,0 +1,24 @@
+{
+    "facts": [
+        {
+            "fact": "Black History Month was first celebrated in 1926 as 'Negro History Week'.",
+            "image": ""
+        },
+        {
+            "fact": "In 1976, the week-long celebration was expanded to a month.",
+            "image": "https://example.com/images/black-history-month-2.jpg"
+        },
+        {
+            "fact": "The NAACP was founded in 1909 and has played a crucial role in fighting for civil rights.",
+            "image": "https://example.com/images/black-history-month-3.jpg"
+        },
+        {
+            "fact": "The first African American to win an Oscar was Hattie McDaniel in 1940 for her role in 'Gone with the Wind'.",
+            "image": "https://example.com/images/black-history-month-4.jpg"
+        },
+        {
+            "fact": "Dr. Martin Luther King Jr. delivered his famous 'I Have a Dream' speech in 1963 during the March on Washington.",
+            "image": "https://example.com/images/black-history-month-5.jpg"
+        }
+    ]
+}
