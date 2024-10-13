@@ -1,11 +1,10 @@
 import { response, text } from "express";
-import { client } from "../openaiclient";
-function getLoadingScreenData() {
+import { client } from "../openaiclient.js";
+export function getLoadingScreenData() {
     const loadingScreenList = getLoadingScreenData();
     const randomIndex = Math.floor(Math.random() * levels.length);
     return loadingScreenList[randomIndex];
 }
-// Todo: ask dylan to populate
 
 async function getLevel1Image(prompt) {
     const image = await client.images.generate({ prompt });

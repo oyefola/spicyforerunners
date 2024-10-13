@@ -1,26 +1,11 @@
 {
     "levels": [
         {
-            "level_id": 3,
-            "title": "Help Londonopolis build Solar-Powered School Buses",
-            "short_desc": "Create both an image of the solar-powered bus and a text description of how it works.",
-            "story": " In a city with heavy traffic, buses often get stuck and waste fuel. You need to design a solar-powered bus that can avoid traffic jams and take kids to school on time",
-            "image_url": "promptquest-ui/client/public/A town with little space in its town square, the land is bare and the children in the town are bored, in a 2D cartoonish style.png",
-            "checklist": [
-                "Image shows the design of the solar panels and how they power the bus.",
-                "Text explains how the bus can avoid traffic (e.g., using special lanes or flying over it).",
-                "Both image and text show how the bus can be eco-friendly.",
-                "Bus design is safe for kids and teachers."
-            ],
-            "max_gems": 40,
-            "open": false
-        },
-        {
             "level_id": 1,
             "title": "A Park for Bantu's town",
             "short_desc": "Create an image of a park that can fit everyone, even animals, and be fun for all.",
             "story": "Bantu's town needs a park where kids, adults, and animals can have fun. But the space is small. What would the park look like?",
-            "image_url": "promptquest-ui/client/public/cartoonish 2D image of heavy traffic in Londonopolis with school buses stuck, wasting fuel, and making students late.png",
+            "image_url": "../assets/bored-villagers.png",
 
             "checklist": [
                 "Has areas for kids and adults to enjoy (e.g., playground, benches).",
@@ -33,12 +18,28 @@
             "next_level_id": 3,
             "open": true
         },
+
         {
             "level_id": 2,
             "title": "Help Ricardo's Village Save Energy",
             "short_desc": "Write a prompt that explains how the village can reduce energy use and find new energy sources",
             "story": "Ricardo lives in a  small village far away ans his village has limited electricity, and it’s running out quickly. The villagers need a plan to save energy.",
-            "image_url": "promptquest-ui/client/public/image.png",
+            "image_url": "../assets/image.png",
+            "checklist": [
+                "Image shows the design of the solar panels and how they power the bus.",
+                "Text explains how the bus can avoid traffic (e.g., using special lanes or flying over it).",
+                "Both image and text show how the bus can be eco-friendly.",
+                "Bus design is safe for kids and teachers."
+            ],
+            "max_gems": 40,
+            "open": false
+        },
+        {
+            "level_id": 3,
+            "title": "Help Londonopolis build Solar-Powered School Buses",
+            "short_desc": "Create both an image of the solar-powered bus and a text description of how it works.",
+            "story": " In a city with heavy traffic, buses often get stuck and waste fuel. You need to design a solar-powered bus that can avoid traffic jams and take kids to school on time",
+            "image_url": "../assets/heavy-traffic.png",
             "checklist": [
                 "Image shows the design of the solar panels and how they power the bus.",
                 "Text explains how the bus can avoid traffic (e.g., using special lanes or flying over it).",

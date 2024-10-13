@@ -1,27 +1,27 @@
-import { client } from "../openaiclient";
-const fs = require("fs");
-const path = require("path");
-
+import { client } from "../openaiclient.js";
+import path from "path";
+import fs from "fs";
+import { title } from "process";
 // Path to the levels JSON file
-const levelsFilePath = path.join(__dirname, "../../data/levels.json");
-
+const levelsFilePath = path.join(process.cwd(), "./data/levels.json");
 // Helper function to read level data from JSON
 function readLevels() {
     const data = fs.readFileSync(levelsFilePath);
     return JSON.parse(data).levels;
 }
 
-function getLevels() {
+export function getLevels() {
     const levels = readLevels();
 
     return levels.map((level) => ({
         level_id: level.level_id,
+        title: level.title,
         desc_image: level.image_url,
         short_desc: level.short_desc,
         open: level.open,
     }));
 }
-async function getHints(level_desc) {
+export async function getHints(level_desc) {
     const response = await client.chat.completions.create({
         model: "gpt-4o",
         messages: [
@@ -49,7 +49,7 @@ async function getHints(level_desc) {
     });
     return response.completions[0].content;
 }
-async function getLevelInfo(level_id) {
+export async function getLevelInfo(level_id) {
     const levels = readLevels();
     const level = levels[level_id];
 
@@ -61,13 +61,13 @@ async function getLevelInfo(level_id) {
     };
 }
 
-function openLevel(level_id) {
+export function openLevel(level_id) {
     const levels = readLevels();
     levels[level_id].open = true;
     fs.writeFileSync(levelsFilePath, JSON.stringify({ levels }));
 }
 
-function scoreResponse(numberOfAddressedItems, checklist, level_id) {
+export function scoreResponse(numberOfAddressedItems, checklist, level_id) {
     updateUserGems("playerOne", 10 * numberOfAddressedItems);
     if (numberOfAddressedItems == checklist.length - 2) {
         openLevel(level_id + 1);
