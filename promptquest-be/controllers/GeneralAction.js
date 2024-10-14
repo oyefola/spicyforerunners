@@ -1,12 +1,19 @@
 import { response, text } from "express";
 import { client } from "../openaiclient.js";
+import path from "path";
+
+import fs from "fs";
+function readLoadingScreen() {
+    const data = fs.readFileSync("./data/loading_screen.json");
+    return JSON.parse(data);
+}
 export function getLoadingScreenData() {
-    const loadingScreenList = getLoadingScreenData();
-    const randomIndex = Math.floor(Math.random() * levels.length);
+    const loadingScreenList = readLoadingScreen();
+    const randomIndex = Math.floor(Math.random() * loadingScreenList.length);
     return loadingScreenList[randomIndex];
 }
 
-async function getLevel1Image(prompt) {
+export async function getLevel1Image(prompt) {
     const image = await client.images.generate({ prompt });
     const image_url = image.data[0].url;
     return image_url;
@@ -74,7 +81,7 @@ async function scoreResponseText(checklist, text) {
 }
 
 // score response image
-async function scoreResponseImage(checklist, image) {
+export async function scoreResponseImage(checklist, image) {
     const response = await client.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
@@ -99,7 +106,7 @@ async function scoreResponseImage(checklist, image) {
 }
 
 // get solution impact
-async function getSoluionImpact(problem,solution) {
+async function getSoluionImpact(problem, solution) {
     const response = await client.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
@@ -110,7 +117,7 @@ async function getSoluionImpact(problem,solution) {
                         type: "text",
                         text: `You are a story teller, given a problem explain the outcome of the solution `,
                     },
-                ]
+                ],
             },
             {
                 role: "user",

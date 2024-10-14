@@ -1,7 +1,12 @@
-import { client } from "../openaiclient.js";
 import path from "path";
+
 import fs from "fs";
 import { title } from "process";
+import { OpenAI } from "openai";
+
+export const client = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
 // Path to the levels JSON file
 const levelsFilePath = path.join(process.cwd(), "./data/levels.json");
 // Helper function to read level data from JSON
@@ -21,7 +26,7 @@ export function getLevels() {
         open: level.open,
     }));
 }
-export async function getHints(level_desc) {
+async function getHints(level_desc) {
     const response = await client.chat.completions.create({
         model: "gpt-4o",
         messages: [
@@ -47,17 +52,23 @@ export async function getHints(level_desc) {
             },
         ],
     });
-    return response.completions[0].content;
+    let output = response.choices[0].message.content;
+    output = output.replace(/```json|\n|```/g, "");
+
+    const jsonArray = JSON.parse(output);
+
+    return jsonArray;
 }
 export async function getLevelInfo(level_id) {
     const levels = readLevels();
-    const level = levels[level_id];
+    const level = levels[level_id - 1];
 
     return {
-        avatarImage: level.avatarImage,
-        problemDesc: level.problemDesc,
-        yourJob: level.yourJob,
-        topTips: await getHints(level.problemDesc),
+        level_id: level.level_id,
+        story: level.story,
+        shortDesc: level.short_desc,
+        tips: await getHints(level.story),
+        checklist: level.checklist,
     };
 }
 

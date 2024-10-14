@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 import { getLevelInfo, openLevel, getLevels } from "../models/LevelModel.js";
-import { getLoadingScreenData } from "../controllers/GeneralAction.js";
+import { getLoadingScreenData, getLevel1Image } from "../controllers/GeneralAction.js";
 // Get level info
 router.get("/levels", async (req, res) => {
     try {
@@ -15,7 +15,6 @@ router.get("/levels", async (req, res) => {
 
 router.get("/loadingscreen", (req, res) => {
     try {
-       
         const result = getLoadingScreenData();
         res.json(result);
     } catch (err) {
@@ -33,23 +32,50 @@ router.put("/levels/:id/open", (req, res) => {
     }
 });
 // Get level info
-router.get("/levels/:id", async (req, res) => {
+router.get("/level/1", async (req, res) => {
     try {
-        const level = await LevelModel.getLevelInfo(req.params.id);
+        const level = await getLevelInfo(1);
         res.json(level);
     } catch (err) {
         console.log(err);
     }
 });
-
+router.get("/levels/2", async (req, res) => {
+    try {
+        const level = await getLevelInfo(2);
+        res.json(level);
+    } catch (err) {
+        console.log(err);
+    }
+});
 // Score response
 router.post("/score", async (req, res) => {
     try {
         const { numberOfAddressedItems, checklist, level_id } = req.body;
-        const result = LevelModel.scoreResponse(numberOfAddressedItems, checklist, level_id);
+        const result = scoreResponse(numberOfAddressedItems, checklist, level_id);
         res.json(result);
     } catch (err) {
         console.log(err);
+    }
+});
+
+router.get("/level1image", async (req, res) => {
+    try {
+        const prompt = req.query.prompt;
+        const imageUrl = await getLevel1Image(prompt);
+        res.json({ imageUrl });
+    } catch (error) {
+        res.status(500).json({ error: error.toString() });
+    }
+});
+
+router.post("/scoreResponseImage", async (req, res) => {
+    try {
+        const { checklist, image } = req.body;
+        const score = await scoreResponseImage(checklist, image);
+        res.json({ score });
+    } catch (error) {
+        res.status(440).json({ error: error.toString() });
     }
 });
 
